@@ -27,7 +27,11 @@ jobs:
         node-version: [8.x, 10.x]
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/download-artifact@master
+      with:
+        name: webpack artifacts
+        path: public
+    - name: npm install, and test
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
